@@ -73,6 +73,8 @@ function my_theme_post_types() {
 
   // Note Post Type
   register_post_type('note', array(
+  	'capability_type'=> 'note',
+    'map_meta_cap' => true,
     'show_in_rest' => true,
     'supports' => array('title', 'editor'),
     'public' => false,
@@ -86,6 +88,23 @@ function my_theme_post_types() {
     ),
     'menu_icon' => 'dashicons-welcome-write-blog'
   ));
+
+	// Like Post Type
+	register_post_type('like', array(
+		'show_in_rest' => false,
+		'supports' => array('title'),
+		'public' => false,
+		'show_ui' => true,
+		'labels' => array(
+			'name' => 'Likes',
+			'add_new_item' => 'Add New Like',
+			'edit_item' => 'Edit Like',
+			'all_items' => 'All Likes',
+			'singular_name' => 'Like'
+		),
+		'menu_icon' => 'dashicons-heart'
+	));
+
 
 
 }
